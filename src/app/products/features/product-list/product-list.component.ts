@@ -1,5 +1,6 @@
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProductStateService } from '../../data-access/products-state.service';
+import { CartStateService } from '../../../shared/data-access/cart-state.service';
 import { ProductCardComponent } from '../../ui/product-card/product-card.component';
 
 @Component({
@@ -12,6 +13,7 @@ import { ProductCardComponent } from '../../ui/product-card/product-card.compone
 })
 export default class ProductListComponent {
   productsState = inject(ProductStateService);
+  cartState = inject(CartStateService).state;
 
   changePage() {
     const page = this.productsState.state.page() + 1;

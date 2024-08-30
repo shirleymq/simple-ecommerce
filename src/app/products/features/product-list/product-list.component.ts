@@ -1,5 +1,5 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { ProductStateService } from '../../../shared/data-access/products-state.service';
+import { ProductStateService } from '../../data-access/products-state.service';
 import { ProductCardComponent } from '../../ui/product-card/product-card.component';
 
 @Component({

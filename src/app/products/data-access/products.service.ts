@@ -12,4 +12,7 @@ export class ProductService extends BaseHttpService {
       params: { limit: page * 6 },
     });
   }
+  getProduct(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
+  }
 }

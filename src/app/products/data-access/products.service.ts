@@ -7,7 +7,9 @@ import { Product } from '../../shared/interfaces/product.interface';
   providedIn: 'root',
 })
 export class ProductService extends BaseHttpService {
-  getProducts(): Observable<Product[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/products`);
+  getProducts(page: number): Observable<Product[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/products`, {
+      params: { limit: page * 6 },
+    });
   }
 }

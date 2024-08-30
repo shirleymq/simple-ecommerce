@@ -1,5 +1,38 @@
-<p>product-list works!</p>
-{{ productsState.state().status }}
-@for(product of productsState.state().products; track product.id){
-<p>{{ product.title }}</p>
-}
+<div class="mx-auto max-w-screen-xl">
+  <!--  @switch (productsState.state.status()) { @case ('loading') {
+  <p>Loading...</p>
+  } @case ('error') {
+  <p>Error</p>
+  } @default { -->
+  <div class="flex justify-end my-3">
+    <button
+      (click)="changePage()"
+      class="flex fixed items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-green-500 dark:border-gray-700 dark:text-white dark:hover:bg-green-700 dark:hover:text-white"
+    >
+      <span class="sr-only">Next</span>
+      <svg
+        class="w-2.5 h-2.5 rtl:rotate-180"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 9 4-4-4-4"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <div class="grid grid-cols-[repeat(4,300px)] gap-5">
+    @for(product of productsState.state().products; track product.id){
+    <app-product-card class="block" [product]="product" />
+    }
+  </div>
+  <!--   } }
+ -->
+</div>
